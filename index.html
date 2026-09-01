@@ -116,6 +116,21 @@
   }
   .hero-desc strong{ color:var(--text); font-weight:600; }
 
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:16px 28px;
+    font-family:var(--mono); font-size:13px;
+    padding:20px 22px; margin-bottom:36px;
+    border:1px solid var(--line); background:var(--panel);
+    border-radius:3px;
+  }
+  .contact-item{
+    display:flex; align-items:center; gap:8px;
+    color:var(--text-dim);
+  }
+  .contact-item .k{ color:var(--text-faint); }
+  .contact-item a{ border-bottom:1px dotted var(--text-faint); transition:color .15s, border-color .15s; }
+  .contact-item a:hover{ color:var(--teal); border-color:var(--teal); }
+
   .stat-row{
     display:flex; flex-wrap:wrap; gap:0;
     border-top:1px solid var(--line); border-left:1px solid var(--line);
@@ -126,6 +141,72 @@
   }
   .stat-num{ font-family:var(--mono); font-size:22px; font-weight:600; color:var(--teal); }
   .stat-label{ font-family:var(--mono); font-size:11px; color:var(--text-faint); margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+
+  .stat.stack{
+    display:flex; align-items:center; gap:14px;
+    padding:18px 22px;
+  }
+  .stack-label{
+    font-family:var(--mono); font-size:11px;
+    color:var(--text-faint); text-transform:uppercase; letter-spacing:.04em;
+    writing-mode:vertical-rl; transform:rotate(180deg);
+    border-left:1px solid var(--line);
+    padding-left:10px; line-height:1.2;
+  }
+  .stack-tags{
+    display:flex; flex-wrap:wrap; gap:6px; flex:1;
+  }
+  .stack-tag{
+    font-family:var(--mono); font-size:11px;
+    background:var(--bg-alt); color:var(--gold);
+    border:1px solid var(--line);
+    padding:4px 9px; border-radius:2px;
+  }
+  .stack-tag.core{ color:var(--teal); font-weight:600; border-color:var(--teal); opacity:.85; }
+
+  /* ---------- research interests card ---------- */
+  .interests-card{
+    border:1px solid var(--line);
+    background:var(--panel);
+    border-radius:3px;
+    padding:24px 26px;
+    margin-top:8px;
+  }
+  .interests-head{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:13px; color:var(--text-faint);
+    margin-bottom:16px;
+    padding-bottom:14px;
+    border-bottom:1px dashed var(--line);
+  }
+  .interests-head::before{ content:'~$'; color:var(--teal); }
+  .interests-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:24px 40px;
+  }
+  @media (max-width:560px){ .interests-grid{ grid-template-columns:1fr; gap:20px; } }
+  .interests-cat{
+    font-family:var(--mono); font-size:12px; color:var(--gold);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .interests-cat .arrow{ color:var(--teal); }
+  .interests-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .interests-tag{
+    font-family:var(--mono); font-size:12px;
+    background:var(--bg-alt); color:var(--text);
+    border:1px solid var(--line);
+    padding:5px 11px; border-radius:2px;
+  }
+  .interests-note{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px dashed var(--line);
+    font-family:var(--mono); font-size:12.5px;
+    color:var(--text-dim);
+    display:flex; align-items:flex-start; gap:10px;
+  }
+  .interests-note .prompt{ color:var(--teal); flex-shrink:0; }
+  .interests-note strong{ color:var(--text); font-weight:600; }
 
   /* ---------- log entries (experience) ---------- */
   .log-entry{
@@ -261,6 +342,7 @@
   <div class="topbar-inner">
     <span class="prompt">navid@portfolio<span class="path">:~$</span><span class="cursor"></span></span>
     <nav class="topnav">
+      <a href="#interests">focus</a>
       <a href="#experience">work</a>
       <a href="#research">research</a>
       <a href="#skills">skills</a>
@@ -277,16 +359,62 @@
     <h1>Navid Zaman</h1>
     <div class="role-line">Backend Software Engineer — building the <span class="accent">infrastructure</span> banks and fintech platforms run transactions on.</div>
     <p class="hero-desc">
-      I design job schedulers, batch pipelines, and authentication systems for financial platforms —
-      currently pursuing an <strong>M.Sc in Digital Business and Innovation</strong> at Tokyo International University,
-      after two years shipping production systems for mobile financial services and loan management platforms in Dhaka.
-      I also build <strong>React.js</strong> front ends when a project calls for it, from dashboards to full client-facing apps.
+      I have contributed to the development of robust financial applications by <strong>implementing business logic, building APIs, and resolving production bugs</strong> as part of a larger engineering team. My backend experience includes supporting <strong>microservice architectures and distributed systems</strong> for <strong>Mobile Financial Services Application and loan management platforms</strong> <strong>deployed in major banks in Bangladesh</strong>. Currently, I am pursuing an <strong>M.Sc. in Digital Business and Innovation</strong> at Tokyo International University focusing on <strong>AI</strong>.
     </p>
+
+    <div class="contact-row">
+      <div class="contact-item"><span class="k">loc:</span>Saitama-ken, Fujimino-shi, Ohara 1-7-10</div>
+      <div class="contact-item"><span class="k">tel:</span><a href="tel:+817090663297">070-9066-3297</a></div>
+      <div class="contact-item"><span class="k">mail:</span><a href="mailto:navidzaman.xyz@gmail.com">navidzaman.xyz@gmail.com</a></div>
+      <div class="contact-item"><span class="k">in:</span><a href="https://www.linkedin.com/in/navid-zaman/" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div class="contact-item"><span class="k">gh:</span><a href="https://github.com/navidzaman0" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+
     <div class="stat-row">
-      <div class="stat"><div class="stat-num">3.51</div><div class="stat-label">GPA / 4.00</div></div>
-      <div class="stat"><div class="stat-num">1500+</div><div class="stat-label">Problems Solved</div></div>
+      <div class="stat"><div class="stat-num">3.51 / 4.00</div><div class="stat-label">Undergrad CGPA</div></div>
       <div class="stat"><div class="stat-num">3</div><div class="stat-label">Publications</div></div>
       <div class="stat"><div class="stat-num">2yr</div><div class="stat-label">Industry Experience</div></div>
+      <div class="stat stack">
+        <span class="stack-label">Coding Stack</span>
+        <div class="stack-tags">
+          <span class="stack-tag core">Spring Boot (Java)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH INTERESTS -->
+  <section id="interests">
+    <div class="sec-label">cat research_interests.md</div>
+    <h2 class="sec-title">Research Interests &amp; Current Focus</h2>
+
+    <div class="interests-card">
+      <div class="interests-head">ls research_focus/ --long</div>
+
+      <div class="interests-grid">
+        <div>
+          <div class="interests-cat"><span class="arrow">▸</span> Primary Research Areas</div>
+          <div class="interests-tags">
+            <span class="interests-tag">Physics-Informed Neural Networks (PINN)</span>
+            <span class="interests-tag">Generative Adversarial Networks (GAN)</span>
+            <span class="interests-tag">Deep Learning</span>
+            <span class="interests-tag">Cloud Computing</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="interests-cat"><span class="arrow">▸</span> Currently Exploring</div>
+          <div class="interests-tags">
+            <span class="interests-tag">DevOps</span>
+            <span class="interests-tag">Agentic AI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="interests-note">
+        <span class="prompt">$</span>
+        <span>Actively pursuing in-depth study of <strong>DevOps practices</strong> and the emerging field of <strong>Agentic AI</strong> — building professional expertise in both domains through hands-on implementation and continuous learning.</span>
+      </div>
     </div>
   </section>
 
@@ -347,8 +475,12 @@
         </div>
 
         <div class="job-project">
-          <span>▸ Project: TeleCash — Mobile Financial Services</span>
-          <a href="https://play.google.com/store/apps/details?id=com.reddot.telecash.mobile&hl=en" target="_blank" rel="noopener">view on Play Store ↗</a>
+          <span>▸ Projects: TeleCash &amp; Lenden — Mobile Financial Services</span>
+          <a href="https://play.google.com/store/apps/details?id=com.reddot.telecash.mobile&hl=en" target="_blank" rel="noopener">TeleCash ↗</a>
+          <span style="color:var(--line);">·</span>
+          <a href="https://www.lendenmfs.com/" target="_blank" rel="noopener">Lenden ↗</a>
+          <span style="color:var(--line);">·</span>
+          <a href="https://play.google.com/store/apps/details?id=com.reddot.lenden.customerapp&fbclid=IwY2xjawUDoZZwZG9mBWV4dG4DYWVtAjEwAGJyaWQRMTlSUzdqTkJHdEZEQWRoNmJzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEexuih2vhQw02kRztVkdRTFR1x0DO0Gq7esz8VW3up0LfUTFfXkOTjwK3ktGo_aem_mEkaj9PHyBtBoG5W-FwFAw" target="_blank" rel="noopener">Lenden Play Store ↗</a>
         </div>
         <ul class="bullets">
           <li>Optimized and integrated microservices into a unified module for single-channel user authentication.</li>
@@ -357,19 +489,10 @@
           <li>Implemented the E-Money distribution channel module per business requirements.</li>
           <li>Integrated Bangla QR payments, unifying transactions across MFS and banking applications.</li>
           <li>Replaced Eureka client-side service discovery with Kubernetes-based service communication and load balancing.</li>
+          <li>Built a centralized MFS transaction reporting module for Bangladesh Bank inspections.</li>
+          <li>Built a dynamic batch user onboarding module integrating the Fineract core banking platform with bulk user screening.</li>
+          <li>Debugged and resolved production-level issues across microservices and payment workflows.</li>
         </ul>
-
-        <div class="sub-project">
-          <div class="job-project">
-            <span>▸ Project: Lenden — MFS Platform</span>
-            <a href="https://pbftl.com/" target="_blank" rel="noopener">view project ↗</a>
-          </div>
-          <ul class="bullets">
-            <li>Built a centralized MFS transaction reporting module for Bangladesh Bank inspections.</li>
-            <li>Built a dynamic batch user onboarding module integrating the Fineract core banking platform with bulk user screening.</li>
-            <li>Debugged and resolved production-level issues across microservices and payment workflows.</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
@@ -433,7 +556,7 @@
       </div>
       <div class="lang-item">
         <div class="lang-name">JAPANESE — JLPT</div>
-        <div class="lang-score">N5 Level</div>
+        <div class="lang-score">N4 Level</div>
       </div>
     </div>
   </section>
@@ -477,6 +600,7 @@
     <h2 class="sec-title">Competitions &amp; Achievements</h2>
 
     <ul class="achv-list">
+      <li><span class="tick">[✓]</span><span class="achv-text"><strong>Monbukagakusho Honors Scholarship</strong> — JASSO (Japan Student Services Organization) · May 2026</span></li>
       <li><span class="tick">[✓]</span><span class="achv-text"><strong>Blockchain Olympiad Bangladesh 2024</strong> — Finalist</span></li>
       <li><span class="tick">[✓]</span><span class="achv-text"><strong>NASA Space Apps Challenge 2024</strong> — Onsite participant, ranked top 50 teams</span></li>
       <li><span class="tick">[✓]</span><span class="achv-text"><strong>EWU IEEE Day Programming Contest 2022</strong> — Champion, East West University</span></li>
